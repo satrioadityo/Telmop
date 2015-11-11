@@ -13,10 +13,21 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	// return View::make('hello');
+	return Redirect::to('home');
 });
 
 Route::get('home', function()
 {
-	return View::make('home');
+	return View::make('homes');
+});
+
+Route::get('login', function()
+{
+	return "This will be login page";
+});
+
+Route::get('register', function()
+{
+	return "This will be register page";
 });

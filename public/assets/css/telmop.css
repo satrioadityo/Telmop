@@ -1,0 +1,94 @@
+/**
+*	created by Satrio Adityo
+*	for styling Telmop
+*/
+
+html{
+	height: 100%;
+}
+
+body{
+	background: url('../images/background.jpg') center center fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	color: #FFF;
+}
+
+
+/* NAVBAR */
+.container-fluid{
+	background-color: #000;
+}
+
+.navbar{
+	background-color: #000;
+	border: 0;
+	margin: 0 100px;
+	padding: 15px 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FFF;
+}
+
+
+/* CONTENT */
+.main-site{
+	margin-top: 80px;
+}
+
+.container-image{
+	overflow: hidden;
+	position: relative;
+}
+
+.overlay-image{
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 200;
+	top: 0;
+	right: 0;
+	opacity: 0;
+	transition: all .75s ease;
+}
+
+.overlay-image:hover{
+	opacity: 1;
+}
+
+.vendor{
+	position: relative;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	color: #FFF;
+	font-size: 24px;
+}
+
+
+
+
+/* FOOTER */
+.footer{
+	background-color: #000;
+	color: #FFF;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.footer-content{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

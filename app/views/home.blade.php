@@ -1,3 +1,6 @@
+<!-- THIS IS JUST A SAMPLE HTML PAGE, USE HOMES.BLADE.PHP INSTEAD CZ IT USE BLADE TEMPLATING -->
+
+
 <!DOCTYPE html>
 <html lang="">
 	<head>
@@ -9,6 +12,9 @@
 		<!-- Bootstrap CSS -->
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
+		<!-- added style -->
+		<link rel="stylesheet" type="text/css" href="{{ url('assets/css') }}/telmop.css">
+
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -17,19 +23,61 @@
 		<![endif]-->
 	</head>
 	<body>
+		<!-- header -->
 		@include('header.header-frontend')
 
-		<div class="container">
+		<!-- content -->
+		<div class="container main-site">
+
+			<!-- show list of Vendor -->
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="container-image">
+						<img src="{{ url() }}/assets/images/bober.jpg" class="img-responsive" alt="Bober Cafe">
+
+						<a href="#vendorpage">
+							<div class="overlay-image">
+								<div class="vendor">Bober Cafe</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="container-image">
+						<img src="{{ url() }}/assets/images/bober.jpg" class="img-responsive" alt="Bober Cafe">
+
+						<div class="overlay-image">
+							<div class="vendor">Bober Cafe</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="container-image">
+						<img src="{{ url() }}/assets/images/bober.jpg" class="img-responsive" alt="Bober Cafe">
+
+						<div class="overlay-image">
+							<div class="vendor">Bober Cafe</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="container-image">
+						<img src="{{ url() }}/assets/images/bober.jpg" class="img-responsive" alt="Bober Cafe">
+
+						<div class="overlay-image">
+							<div class="vendor">Bober Cafe</div>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
+
+		<!-- footer -->
+		<div class="footer">
+			<div class="footer-content">Telmop - © 2015</div>
 		</div>
 
 		<!-- jQuery -->
