@@ -31,3 +31,8 @@ Route::get('register', function()
 {
 	return "This will be register page";
 });
+
+Route::get('vendor', function()
+{
+	return View::make('vendor');
+});

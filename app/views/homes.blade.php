@@ -17,7 +17,7 @@
 				<div class="container-image">
 					<img src="{{ url() }}/assets/images/bober.jpg" class="img-responsive" alt="Bober Cafe">
 
-					<a href="#vendorpage">
+					<a href="{{ url() }}/vendor">
 						<div class="overlay-image">
 							<div class="vendor">Bober Cafe</div>
 						</div>

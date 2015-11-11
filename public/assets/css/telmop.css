@@ -15,6 +15,14 @@ body{
 	color: #FFF;
 }
 
+label{
+	color: #000;
+}
+
+.modal-title{
+	color: #000;
+}
+
 
 /* NAVBAR */
 .container-fluid{
@@ -24,8 +32,7 @@ body{
 .navbar{
 	background-color: #000;
 	border: 0;
-	margin: 0 100px;
-	padding: 15px 0;
+	padding: 15px 100px;
 }
 
 .navbar-default .navbar-brand {
@@ -39,7 +46,7 @@ body{
 
 /* CONTENT */
 .main-site{
-	margin-top: 80px;
+	margin-top: 120px;
 }
 
 .container-image{
@@ -72,6 +79,10 @@ body{
 	font-size: 24px;
 }
 
+.vendor-name{
+	text-align: center;
+	font-size: 24px;
+}
 
 
 
