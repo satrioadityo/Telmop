@@ -1,0 +1,35 @@
+@extends('layout')
+
+@section('title')
+Telmop's Home
+@stop
+
+@section('styles')
+
+@stop
+
+@section('contents')
+<div class="container main-site">
+
+	<!-- show list of Vendor -->
+	
+		<div id="kotakSignup">
+			<div id="atas">
+				ADD SALDO
+			</div>
+			<!-- form add Saldo -->
+			<div id="bawah">
+				<form method="post" action="{{url()}}/addSaldo">
+					<input class="masuk" type="text" autocomplete="on" placeholder="Username.." name="uname"><br/>
+					<input class="masuk" type="text" autocomplete="on" placeholder="Saldo.." name="saldo"><br/>
+					<input id="tombol" type="submit" name="btn-addSaldo" value="Add Saldo"><br/><br/>
+				</form>
+			</div>
+		</div>	
+	
+</div>
+@stop
+
+@section('scripts')
+
+@stop

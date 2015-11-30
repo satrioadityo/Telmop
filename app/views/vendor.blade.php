@@ -43,7 +43,9 @@
 								<td>Hot Capuchino</td>
 								<td>13</td>
 								<td>Available</td>
-								<td><a class="btn btn-primary" data-toggle="modal" href='#confirmation'>Order</a></td>
+								<?php if (Session::has('user')): ?>
+									<td><a class="btn btn-primary" data-toggle="modal" href='#confirmation'>Order</a></td>
+								<?php endif ?>
 							</tr>
 							<tr>
 								<td>Hot Moccachino</td>

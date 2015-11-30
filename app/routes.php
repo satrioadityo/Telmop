@@ -24,15 +24,26 @@ Route::get('home', function()
 
 Route::get('login', function()
 {
-	return "This will be login page";
+	return View::make('login');
 });
 
 Route::get('register', function()
 {
-	return "This will be register page";
+	return View::make('register');
 });
 
 Route::get('vendor', function()
 {
 	return View::make('vendor');
 });
+
+Route::get('read', function()
+{
+	return View::make('read');
+});
+
+Route::post('submitRegister', 'DBController@insertData');
+Route::post('submitLogin', 'DBController@cekLogin');
+// Route::post('addSaldo', 'DBController@addSaldo');
+Route::get('logout', 'DBController@logout');
+
