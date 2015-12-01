@@ -13,7 +13,6 @@
 
 Route::get('/', function()
 {
-	// return View::make('hello');
 	return Redirect::to('home');
 });
 
@@ -35,6 +34,16 @@ Route::get('register', function()
 Route::get('vendor', function()
 {
 	return View::make('vendor');
+});
+
+Route::get('vendor/admin', function()
+{
+	return View::make('vendor-admin');
+});
+
+Route::get('user/admin', function()
+{
+	return View::make('user-admin');
 });
 
 Route::get('read', function()
