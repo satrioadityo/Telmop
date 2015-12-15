@@ -46,6 +46,21 @@ Route::get('user/admin', function()
 	return View::make('user-admin');
 });
 
+Route::get('user/admin/user-home', function()
+{
+	return View::make('user-home');
+});
+
+Route::get('user/admin/detail', function()
+{
+	return View::make('detail');
+});
+
+Route::get('user/admin/stand', function()
+{
+	return View::make('stand');
+});
+
 Route::get('read', function()
 {
 	return View::make('read');
