@@ -84,6 +84,32 @@ label{
 	font-size: 24px;
 }
 
+.row{
+    margin-top: 80px;
+}
+.col-md-12{
+    margin-left: 20px;
+}
+
+.form-controller{
+    width: 400px;
+    font-size: 12pt;
+    border: 1px solid #2ECC71;
+    padding-left:10px;
+    color:#2ECC71;
+}
+.drzone{
+    width: 400px;
+    margin-left: 0px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    /*border: 1px solid #2ECC71;*/
+}
+#submit2{
+    width: 400px;
+}
+
+
 
 
 /* FOOTER */

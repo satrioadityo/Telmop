@@ -12,6 +12,7 @@
 		<!-- added style -->
 		<link rel="stylesheet" type="text/css" href="{{ url('assets/css') }}/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="{{ url('assets/css') }}/telmop.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.css">
 		@yield('styles')
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -37,7 +38,7 @@
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="{{ url('assets/js') }}/jquery.js"></script>
 		<script type="text/javascript" src="{{ url('assets/js') }}/bootstrap.min.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
 		<!-- added script -->
 		@yield('scripts')
 	</body>
