@@ -32,10 +32,29 @@ class DBController extends BaseController {
 			return Redirect::to('/read')->with('message','User Not Found');
 		}
 	}
+
+	public function standLogin(){
+		$result = DB::select('select nama from stand where idStand=:uName and pass=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
+		if ($result) {
+			// session dengan nama sesuai user
+			Session::put('user', $_POST['username']);
+			// Session::put('status', 'admin');
+			return Redirect::to('/read')->with('message','Login La Sukses');
+		}else {
+			return Redirect::to('/read')->with('message','User Not Found');
+		}
+	}
+
 	public function logout(){
+		$status = Session::get('status');
 		Session::forget('user');
 		Session::flush();
-		return Redirect::to('/home');
+		if ($status == "admin") {
+			return Redirect::to('/vendor');
+		}else{
+			return Redirect::to('/home');
+		}
+		
 	}
 	// public function searchUser(){
 	// 	$result = DB::select('update member set saldo='$_POST['saldo']' where username=:uName',['uName' => $_POST['uname']]);

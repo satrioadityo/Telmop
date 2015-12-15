@@ -36,9 +36,19 @@ Route::get('vendor', function()
 	return View::make('vendor');
 });
 
-Route::get('vendor/admin', function()
+Route::get('vendor-home', function()
+{
+	return View::make('vendor-home');
+});
+
+Route::get('vendor-admin', function()
 {
 	return View::make('vendor-admin');
+});
+
+Route::get('myMenu', function()
+{
+	return View::make('my-menu');
 });
 
 Route::get('user/admin', function()
@@ -53,6 +63,8 @@ Route::get('read', function()
 
 Route::post('submitRegister', 'DBController@insertData');
 Route::post('submitLogin', 'DBController@cekLogin');
-// Route::post('addSaldo', 'DBController@addSaldo');
 Route::get('logout', 'DBController@logout');
+Route::post('vendorLogin', 'VendorController@standLogin');
+Route::post('saveMenu','VendorController@saveMenu');
+Route::post('uploadMenuImage','VendorController@uploadMenuImage');
 
