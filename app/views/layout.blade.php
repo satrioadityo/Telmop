@@ -10,6 +10,7 @@
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- added style -->
+		<link rel="stylesheet" type="text/css" href="{{ url('assets/css') }}/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="{{ url('assets/css') }}/telmop.css">
 		@yield('styles')
 
@@ -34,6 +35,9 @@
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="{{ url('assets/js') }}/jquery.js"></script>
+		<script type="text/javascript" src="{{ url('assets/js') }}/bootstrap.min.js"></script>
 
 		<!-- added script -->
 		@yield('scripts')

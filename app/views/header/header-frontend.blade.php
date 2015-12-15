@@ -8,7 +8,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home">TELMOP</a>
+			<a class="navbar-brand" href="{{ url() }}">TELMOP</a>
 		</div>
 	
 		<!-- Collect the nav links, forms, and other content for toggling -->
