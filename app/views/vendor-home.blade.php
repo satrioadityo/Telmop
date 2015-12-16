@@ -52,7 +52,7 @@
 
 								@if(Session::has('user'))
 									@if($menu->stock > 0)
-										<td><a class="btn btn-primary" data-toggle="modal" href='#confirmation'>Order</a></td>
+										<td><a class="btn btn-primary" href='{{ url() }}/order/{{$menu->idStand}}/{{$menu->idMenu}}'>Order</a></td>
 									@else
 										<td><a class="btn btn-danger">Out of Stock</a></td>
 									@endif
@@ -73,44 +73,16 @@
 			</div>
 		</div>
 
-		<!-- modal confirmation -->
-		<div class="modal fade" id="confirmation">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Order Detail</h4>
-					</div>
-					<div class="modal-body">
-						<form action="#" method="POST">
-							<div class="form-group">
-								<label for="Menu">Menu</label>
-								<input type="text" class="form-control" id="" placeholder="Hot Moccachino" disabled="true">
-							</div>
-
-							<div class="form-group">
-								<label for="OrderNumber">Order Number</label>
-								<input type="text" class="form-control" id="" placeholder="Number of Order">
-							</div>
-
-							<div class="form-group">
-								<label for="Location">Location</label>
-								<input type="text" class="form-control" id="" placeholder="Your Location">
-							</div>
-
-							<button type="submit" class="btn btn-primary">Order</button>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
 	</div>
 @stop
 
 @section('scripts')
+
+	<script type="text/javascript">
+	$('a#confirmation').click(function(event) {
+		/* Act on the event */
+		alert('heho');
+	});
+	</script>
 	
 @stop

@@ -71,6 +71,8 @@ Route::get('read', function()
 });
 
 Route::get('deliver/order/{idTransaksi}', 'TransaksiController@deliverOrder');
+Route::get('order/{idStand}/{idMenu}', 'TransaksiController@Order');
+Route::post('order', 'TransaksiController@doOrder');
 
 Route::post('submitRegister', 'DBController@insertData');
 Route::post('submitLogin', 'DBController@cekLogin');
