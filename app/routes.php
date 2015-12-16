@@ -21,9 +21,9 @@ Route::get('home', function()
 	return View::make('homes');
 });
 
-Route::get('login', function()
+Route::get('user-login', function()
 {
-	return View::make('login');
+	return View::make('user-login');
 });
 
 Route::get('register', function()
@@ -31,14 +31,24 @@ Route::get('register', function()
 	return View::make('register');
 });
 
-Route::get('vendor', function()
+Route::get('vendor-login', function()
 {
-	return View::make('vendor');
+	return View::make('vendor-login');
 });
 
-Route::get('vendor/admin', function()
+Route::get('vendor-home', function()
+{
+	return View::make('vendor-home');
+});
+
+Route::get('vendor-admin', function()
 {
 	return View::make('vendor-admin');
+});
+
+Route::get('vendor-admin/myMenu', function()
+{
+	return View::make('my-menu');
 });
 
 Route::get('user/admin', function()
@@ -68,6 +78,8 @@ Route::get('read', function()
 
 Route::post('submitRegister', 'DBController@insertData');
 Route::post('submitLogin', 'DBController@cekLogin');
-// Route::post('addSaldo', 'DBController@addSaldo');
 Route::get('logout', 'DBController@logout');
+Route::post('vendorLogin', 'VendorController@standLogin');
+Route::post('saveMenu','VendorController@saveMenu');
+Route::post('uploadMenuImage','VendorController@uploadMenuImage');
 

@@ -23,7 +23,7 @@
 	</head>
 	<body>
 		<!-- header -->
-		@include('header.header-backend')
+		@include('header.header-backend-user')
 
 		<!-- content -->
 		@yield('contents')

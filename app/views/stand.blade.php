@@ -1,11 +1,10 @@
-@extends('layout')
-
+@extends('layout-backend-user')
 @section('title')
-	Telmop's Vendor
+	Market Menu
 @stop
 
 @section('styles')
-	
+
 @stop
 
 @section('contents')

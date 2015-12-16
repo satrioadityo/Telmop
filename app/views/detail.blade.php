@@ -1,15 +1,20 @@
-@extends('layout')
-
+@extends('layout-backend-user')
 @section('title')
-	Telmop's Home
+	Market Menu
 @stop
 
 @section('styles')
-	
+
 @stop
 
 @section('contents')
-	<div class="container main-site">
+<?php
+	$abd = "aksjdna";
+	$query = DB::table('member')->where('username', Session::get('user'))->get();
+	
+?>
+
+	<div class="container main-site" style="margin-top:30px">
 
 		<!-- show list of Vendor -->
 		<div class="row">
@@ -22,23 +27,25 @@
 	                </div>
 	                <div class="form-group">
 						<label style="color:#ffffff">Username *</label><br>
-                        <input class="form-control" type="text" name="Username" value="Faris" style="block; color:#333" readonly="true"/>
+                        <input id="user2" class="form-control" type="text" name="Username" value="<?php echo Session::get('user'); ?>" style="block; color:#333" readonly="true"/>
 					</div>
 					<div class="form-group">
 						<label style="color:#ffffff">Pass *</label><br>
                         <input class="form-control" type="text" name="Username" value="Akihisa" style="block; color:#333" readonly="false"/>
 					</div>
 					<div class="form-group">
-						<label style="color:#ffffff">Username *</label><br>
-                        <input class="form-control" type="text" name="Username" value="" style="block; color:#333" />
+						<label style="color:#ffffff">Fullname *</label><br>
+                        <input class="form-control" type="text" name="Username" value="<?php echo $query ?>" style="block; color:#333" />
 					</div>
 					<div class="form-group">
-						<label style="color:#ffffff">Username *</label><br>
+						<label style="color:#ffffff">Address *</label><br>
                         <input class="form-control" type="text" name="Username" value="" style="block; color:#333" />
 					</div>
 	            </div>
-	            <div class="col-lg-12" style="text-align:left">
-					<input id="buttonedit" type="button" class="btn btn-primary" value="Edit" onclick="" style="visibility:hidden text-align:R" />
+	            <div class="col-lg-6" style="text-align:left">
+					<input id="buttonedit" type="button" class="btn btn-primary" value="Edit" onclick="" style="visibility:show" />
+				</div>
+				<div class="col-lg-6" style="text-align:right">
 					<input id="buttonsave" type="button" class="btn btn-warning" value="Save" onclick="" style="visibility:show" />
 					<input id="buttoncancel" type="button" class="btn btn-default" value="Cancel" onclick="" style="visibility:show"/>
 				</div>
@@ -75,6 +82,7 @@
 			</div>
 		</div>
 	</div>
+
 @stop
 
 @section('scripts')
