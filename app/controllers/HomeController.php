@@ -15,6 +15,16 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function showHome()
+	{
+		// menampilkan home, GET DATA SELURUH STAND
+		$listStand = Stand::get();
+
+		$data = array('listStand' => $listStand);
+
+		return View::make('home', $data);
+	}
+
 	public function showWelcome()
 	{
 		return View::make('hello');

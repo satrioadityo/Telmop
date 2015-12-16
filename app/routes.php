@@ -16,10 +16,7 @@ Route::get('/', function()
 	return Redirect::to('home');
 });
 
-Route::get('home', function()
-{
-	return View::make('homes');
-});
+Route::get('home', 'HomeController@showHome');
 
 Route::get('user-login', function()
 {
