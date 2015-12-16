@@ -23,12 +23,12 @@ class DBController extends BaseController {
 	}
 
 	public function cekLogin(){
-		$result = DB::select('select fullname from member where username=:uName and password=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
+		$result = DB::select('select * from member where username=:uName and password=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
 		if ($result) {
-			// session dengan nama sesuai user
 			Session::put('user', $_POST['username']);
-			return Redirect::to('/read')->with('message','Login Sukses');
-		}else {
+			Session::put('status', 'stand');
+			return Redirect::to('/user/admin/user-home');
+		} else {
 			return Redirect::to('/read')->with('message','User Not Found');
 		}
 	}

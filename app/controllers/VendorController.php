@@ -11,10 +11,10 @@ class VendorController extends BaseController {
 
 	
 	public function standLogin(){
-		$result = DB::select('select saldo from stand where idStand=:uName and pass=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
+		$result = DB::select('select * from stand where idStand=:uName and pass=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
 		if ($result) {
 			Session::put('user', $_POST['username']);
-			Session::put('status', 'admin');
+			Session::put('status', 'stand');
 			return Redirect::to('/vendor-admin');
 		}else {
 			return Redirect::to('/read')->with('message','User Not Found');

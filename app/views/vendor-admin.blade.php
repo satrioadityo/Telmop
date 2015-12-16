@@ -12,12 +12,12 @@
 	<div class="container main-site">
 
 		<!-- show list of Vendor -->
-		<div class="row">
+		<div class="row" style="margin-top:5px">
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 				<div class="container-image">
 					<img src="{{ url() }}/assets/images/bober.jpg" class="img-responsive" alt="Bober Cafe">
 
-					<a href="{{ url() }}/vendor">
+					<a href="{{ url() }}/vendor-admin/myMenu">
 						<div class="overlay-image">
 							<div class="vendor">Bober Cafe</div>
 						</div>

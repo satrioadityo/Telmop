@@ -8,52 +8,72 @@
 @stop
 
 @section('contents')
-<div class="row">
-	<div class="col-md-8">
-		<h1>My Menu</h1>
-	</div>
-
-	<div class="col-md-4">
-		<h1>Add Menu</h1>
-	</div>
-	
-</div>
 
 <div class="row">
-	<div class="col-md-8">
-
-	</div>
-	
-	<div class="col-md-4">
-
-		
-
-
-		<div class="drzone" id="drzone">
-			<form action="{{url('/uploadMenuImage')}}" class="dropzone" id="dropzone" method="POST" style="color:#2ECC71;">
-				<input type="hidden" name="idBarang" id="idBarang">
-				<!-- <center>
-					<h4 style="color:#2ECC71;">Click Here to Upload</h4>
-				</center> -->
-				
-				<!-- <button id="uploadall" class="btn btn-default">Upload All</button>  -->
-			</form>
-
-		</div>
-		<form class="form" method="POST" action="{{url('/saveMenu')}}">
-			<input type="hidden" name="_token" value="{{csrf_token()}}">
-			<div class="form-group">
-				<input type="text" onchange="showVal(this.value)" name="id_product" id="id_product" placeholder="Product ID" class="form-controller" >
-				<input type="text" name="product_name" id="product_name" placeholder="Name of Product" class="form-controller">
-				<input type="text" name="price" id="price" placeholder="Price" class="form-controller">
-				<input type="text" name="stock" id="stock" placeholder="Stock" class="form-controller">
-				<input type="hidden" name="idtoko" value="<?php echo Session::get('user');?>">
+	<div class="col-lg-12" style="margin-right:30px; margin-left:30px;">
+		<div class="col-lg-6">
+			<h1>My Menu</h1>
+			<div class="table-responsive">
+				<table class="table	">
+					<thead>
+						<tr>
+							<th>Menu</th>
+							<th>Price</th>
+							<th>Status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							$result = DB::table('menu')->where('idStand', Session::get('user'))->get();
+							if (!$result) { // add this check.
+							    die('Invalid query: ' . mysql_error());
+							} else {
+								while ($row == mysql_fetch_array($result)) {
+									echo "<tr><td>" . $row['nama'] . "</td><td>" . $row['harga'] . "</td></tr>";
+								}
+							}
+						?>
+					</tbody>
+				</table>
 			</div>
-			<button class="btn btn-primary" id="submit2">Add Product</button>
-		</form>
-		
+		</div>
+
+		<div class="col-lg-6">
+			<center>
+				<h1>Add Menu</h1>
+				<div class="col-lg-12">
+					<div class="drzone" id="drzone">
+						<form action="{{url('/uploadMenuImage')}}" class="dropzone" id="dropzone" method="POST" style="color:#2ECC71;">
+							<input type="hidden" name="idBarang" id="idBarang">
+						</form>
+					</div>
+					<form class="form" method="POST" action="{{url('/saveMenu')}}">
+						<input type="hidden" name="_token" value="{{csrf_token()}}">
+						<div class="form-group">
+							<input type="text" onchange="showVal(this.value)" name="id_product" id="id_product" placeholder="Product ID" class="form-controller form-control" >
+						</div>
+						<div class="form-group">
+							<input type="text" name="product_name" id="product_name" placeholder="Name of Product" class="form-controller form-control">
+						</div>
+						<div class="form-group">
+							<input type="text" name="price" id="price" placeholder="Price" class="form-controller form-control">
+						</div>
+						<div class="form-group">
+							<input type="text" name="stock" id="stock" placeholder="Stock" class="form-controller form-control">
+						</div>
+						<div class="form-group">
+							<input type="hidden" name="idtoko" value="<?php echo Session::get('user');?>">
+						</div>
+						<button class="btn btn-primary" id="submit2">Add Product</button>
+					</form>
+				</div>
+			</center>
+		</div>
 	</div>
 </div>
+
+
 @stop
 
 @section('scripts')

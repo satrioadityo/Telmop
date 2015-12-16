@@ -21,9 +21,9 @@ Route::get('home', function()
 	return View::make('homes');
 });
 
-Route::get('login', function()
+Route::get('user-login', function()
 {
-	return View::make('login');
+	return View::make('user-login');
 });
 
 Route::get('register', function()
@@ -31,9 +31,9 @@ Route::get('register', function()
 	return View::make('register');
 });
 
-Route::get('vendor', function()
+Route::get('vendor-login', function()
 {
-	return View::make('vendor');
+	return View::make('vendor-login');
 });
 
 Route::get('vendor-home', function()
@@ -46,7 +46,7 @@ Route::get('vendor-admin', function()
 	return View::make('vendor-admin');
 });
 
-Route::get('myMenu', function()
+Route::get('vendor-admin/myMenu', function()
 {
 	return View::make('my-menu');
 });
@@ -54,6 +54,21 @@ Route::get('myMenu', function()
 Route::get('user/admin', function()
 {
 	return View::make('user-admin');
+});
+
+Route::get('user/admin/user-home', function()
+{
+	return View::make('user-home');
+});
+
+Route::get('user/admin/detail', function()
+{
+	return View::make('detail');
+});
+
+Route::get('user/admin/stand', function()
+{
+	return View::make('stand');
 });
 
 Route::get('read', function()
