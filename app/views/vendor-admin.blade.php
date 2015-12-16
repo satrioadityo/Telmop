@@ -64,7 +64,7 @@
 								<td>{{$menu->jumlahBeli}}</td>
 								<td>{{$menu->location}}</td>
 								<td>{{$menu->username}}</td>
-								<td><a class="btn btn-primary" href="{{ url() }}/deliver/order/{{$menu->id}}">Deliver</a></td>
+								<td><a class="btn btn-primary" href="{{ url() }}/deliver/order/{{$menu->idTransaksi}}">Deliver</a></td>
 							</tr>
 						@endforeach
 						</tbody>
