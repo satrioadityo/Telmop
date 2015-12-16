@@ -1,13 +1,17 @@
 <?php
-// namespace App\Http\controllers;
-
-// use Illuminate\Http\Request;
-// use App\Http\Requests;
-// use Input;
-// use DB;
-// use Redirect;
 
 class VendorController extends BaseController {
+
+	// added by satrio
+	public function showVendor($nama)
+	{
+		// menampilkan halaman vendor berdasarkan nama
+		$vendor = Stand::where('nama', $nama)->first();
+		$listMenu = Menu::where('idStand', $vendor['idStand'])->get();
+		$data = array('vendor' => $vendor, 'listMenu' => $listMenu);
+
+		return View::make('vendor-home', $data);
+	}
 
 	
 	public function standLogin(){

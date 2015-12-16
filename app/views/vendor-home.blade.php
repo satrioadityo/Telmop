@@ -11,20 +11,20 @@
 @section('contents')
 	<div class="container main-site">
 
-		<!-- show list of Vendor -->
-		<div class="row">
+		<!-- show Vendor -->
+		<div class="row row-site">
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 				<div class="container-image">
-					<img src="{{ url() }}/assets/images/bober.jpg" class="img-responsive" alt="Bober Cafe">
+					<img src="{{ url() }}/assets/images/{{ $vendor->standpicture }}" class="img-responsive" alt="{{ $vendor->nama }}">
 
-					<a href="{{ url() }}/vendor">
+					<a href="{{ url() }}/vendor/{{ $vendor->nama }}">
 						<div class="overlay-image">
-							<div class="vendor">Bober Cafe</div>
+							<div class="vendor">{{ $vendor->nama }}</div>
 						</div>
 					</a>
 				</div>
 				<hr>
-				<div class="vendor-name">Bober Cafe</div>
+				<div class="vendor-name">{{ $vendor->nama }}</div>
 			</div>
 
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -39,20 +39,34 @@
 							</tr>
 						</thead>
 						<tbody>
+						@foreach($listMenu as $menu)
 							<tr>
-								<td>Hot Capuchino</td>
-								<td>13</td>
+								<td>{{$menu->nama}}</td>
+								<td>{{$menu->harga}}</td>
+
+								@if($menu->stok > 0)
 								<td>Available</td>
-								<?php if (Session::has('user')): ?>
-									<td><a class="btn btn-primary" data-toggle="modal" href='#confirmation'>Order</a></td>
-								<?php endif ?>
-							</tr>
-							<tr>
-								<td>Hot Moccachino</td>
-								<td>14</td>
+								@else
 								<td>Not Available</td>
-								<td></td>
+								@endif
+
+								@if(Session::has('user'))
+									@if($menu->stok > 0)
+										<td><a class="btn btn-primary" data-toggle="modal" href='#confirmation'>Order</a></td>
+									@else
+										<td><a class="btn btn-danger">Out of Stock</a></td>
+									@endif
+								@else
+									@if($menu->stok > 0)
+										<td><a class="btn btn-info" href="{{ url() }}/user-login">Login for Order</a></td>
+									@else
+										<td><a class="btn btn-danger">Out of Stock</a></td>
+									@endif
+									
+								@endif
+								
 							</tr>
+						@endforeach
 						</tbody>
 					</table>
 				</div>
@@ -60,7 +74,6 @@
 		</div>
 
 		<!-- modal confirmation -->
-		
 		<div class="modal fade" id="confirmation">
 			<div class="modal-dialog">
 				<div class="modal-content">

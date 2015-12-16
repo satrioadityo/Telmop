@@ -33,10 +33,7 @@ Route::get('vendor-login', function()
 	return View::make('vendor-login');
 });
 
-Route::get('vendor-home', function()
-{
-	return View::make('vendor-home');
-});
+Route::get('vendor/{nama}', 'VendorController@showVendor');
 
 Route::get('vendor-admin', function()
 {
