@@ -9,7 +9,6 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="{{ url() }}">TELMOP</a>
-			<a class="navbar-brand" href="vendor-admin">HOME</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">

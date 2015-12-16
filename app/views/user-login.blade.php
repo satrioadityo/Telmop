@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-Telmop's Home
+Telmop's User Login
 @stop
 
 @section('styles')

@@ -3,10 +3,10 @@
 class VendorController extends BaseController {
 
 	// added by satrio
-	public function showVendor($nama)
+	public function showVendor($username)
 	{
 		// menampilkan halaman vendor berdasarkan nama
-		$vendor = Stand::where('nama', $nama)->first();
+		$vendor = Stand::where('username', $username)->first();
 		$listMenu = Menu::where('idStand', $vendor['idStand'])->get();
 		$data = array('vendor' => $vendor, 'listMenu' => $listMenu);
 
@@ -14,8 +14,8 @@ class VendorController extends BaseController {
 	}
 
 	
-	public function standLogin(){
-		$result = DB::select('select * from stand where idStand=:uName and pass=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
+	public function vendorLogin(){
+		$result = DB::select('select * from stand where username=:uName and password=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
 		if ($result) {
 			Session::put('user', $_POST['username']);
 			Session::put('status', 'stand');
@@ -27,9 +27,9 @@ class VendorController extends BaseController {
 	public function saveMenu(){
 		$data = array(
 		'idMenu' => $_POST['id_product'],
-		'harga' => $_POST['price'],
-		'nama' => $_POST['product_name'],
-		'stok' => $_POST['stock'],
+		'price' => $_POST['price'],
+		'name' => $_POST['product_name'],
+		'stock' => $_POST['stock'],
 		'idStand' => $_POST['idtoko'],
 		);
 		DB::table('menu')->insert($data);

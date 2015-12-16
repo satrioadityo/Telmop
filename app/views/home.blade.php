@@ -18,11 +18,11 @@
 				@foreach($listStand as $stand)
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
 						<div class="container-image">
-							<img src="{{ url() }}/assets/images/{{$stand->standpicture}}" class="img-responsive" alt="{{$stand->nama}}">
-							<a href="{{ url() }}/vendor/{{$stand->nama}}">
+							<img src="{{ url() }}/assets/images/{{$stand->standpicture}}" class="img-responsive" alt="{{$stand->username}}">
+							<a href="{{ url() }}/vendor/{{$stand->username}}">
 								<div class="overlay-image">
 									<div class="vendor">
-										{{$stand->nama}}
+										{{$stand->vendorname}}
 									</div>
 								</div>
 							</a>

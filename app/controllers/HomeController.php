@@ -22,6 +22,14 @@ class HomeController extends BaseController {
 
 		$data = array('listStand' => $listStand);
 
+		if(Session::has('user'))
+		{
+			if(Session::get('status') == "stand")
+			{
+				return Redirect::to('vendor-admin');
+			}
+		}
+
 		return View::make('home', $data);
 	}
 

@@ -15,16 +15,16 @@
 		<div class="row row-site">
 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 				<div class="container-image">
-					<img src="{{ url() }}/assets/images/{{ $vendor->standpicture }}" class="img-responsive" alt="{{ $vendor->nama }}">
+					<img src="{{ url() }}/assets/images/{{ $vendor->standpicture }}" class="img-responsive" alt="{{ $vendor->username }}">
 
-					<a href="{{ url() }}/vendor/{{ $vendor->nama }}">
+					<a href="{{ url() }}/vendor/{{ $vendor->username }}">
 						<div class="overlay-image">
-							<div class="vendor">{{ $vendor->nama }}</div>
+							<div class="vendor">{{ $vendor->vendorname }}</div>
 						</div>
 					</a>
 				</div>
 				<hr>
-				<div class="vendor-name">{{ $vendor->nama }}</div>
+				<div class="vendor-name">{{ $vendor->vendorname }}</div>
 			</div>
 
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -41,23 +41,23 @@
 						<tbody>
 						@foreach($listMenu as $menu)
 							<tr>
-								<td>{{$menu->nama}}</td>
-								<td>{{$menu->harga}}</td>
+								<td>{{$menu->name}}</td>
+								<td>{{$menu->price}}</td>
 
-								@if($menu->stok > 0)
+								@if($menu->stock > 0)
 								<td>Available</td>
 								@else
 								<td>Not Available</td>
 								@endif
 
 								@if(Session::has('user'))
-									@if($menu->stok > 0)
+									@if($menu->stock > 0)
 										<td><a class="btn btn-primary" data-toggle="modal" href='#confirmation'>Order</a></td>
 									@else
 										<td><a class="btn btn-danger">Out of Stock</a></td>
 									@endif
 								@else
-									@if($menu->stok > 0)
+									@if($menu->stock > 0)
 										<td><a class="btn btn-info" href="{{ url() }}/user-login">Login for Order</a></td>
 									@else
 										<td><a class="btn btn-danger">Out of Stock</a></td>

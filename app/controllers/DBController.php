@@ -1,11 +1,4 @@
 <?php
-// namespace App\Http\controllers;
-
-// use Illuminate\Http\Request;
-// use App\Http\Requests;
-// use Input;
-// use DB;
-// use Redirect;
 
 class DBController extends BaseController {
 
@@ -26,8 +19,8 @@ class DBController extends BaseController {
 		$result = DB::select('select * from member where username=:uName and password=:passwd',['uName' => $_POST['username'], 'passwd' =>$_POST['password']]);
 		if ($result) {
 			Session::put('user', $_POST['username']);
-			Session::put('status', 'stand');
-			return Redirect::to('/user/admin/user-home');
+			Session::put('status', 'user');
+			return Redirect::to('/home');
 		} else {
 			return Redirect::to('/read')->with('message','User Not Found');
 		}

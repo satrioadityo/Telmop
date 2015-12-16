@@ -14,13 +14,19 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<?php if (Session::has('user')): ?>
-						<li><a><?php echo Session::get('user'); ?></a></li>
-						<li><a href="{{ url() }}/logout">Logout</a></li>
-					<?php else : ?>
-						<li><a href="{{ url() }}/vendor-login">Login</a></li>
-						<li><a href="{{ url() }}/register">Register</a></li>
-				<?php endif ?>
+				@if(Session::has('user'))
+					<li><a><?php echo Session::get('user'); ?></a></li>
+
+					<?php 
+						$username = Session::get('user');
+						$userLoggedIn = User::where('username', $username)->first();
+				 	?>
+					<li><a>Saldo Rp {{$userLoggedIn->saldo}}</a></li>
+					<li><a href="{{ url() }}/logout">Logout</a></li>
+				@else
+					<li><a href="{{ url() }}/user-login">Login</a></li>
+					<li><a href="{{ url() }}/register">Register</a></li>
+				@endif
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</nav>

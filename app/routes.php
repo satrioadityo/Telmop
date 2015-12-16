@@ -33,7 +33,7 @@ Route::get('vendor-login', function()
 	return View::make('vendor-login');
 });
 
-Route::get('vendor/{nama}', 'VendorController@showVendor');
+Route::get('vendor/{username}', 'VendorController@showVendor');
 
 Route::get('vendor-admin', function()
 {
@@ -73,7 +73,7 @@ Route::get('read', function()
 Route::post('submitRegister', 'DBController@insertData');
 Route::post('submitLogin', 'DBController@cekLogin');
 Route::get('logout', 'DBController@logout');
-Route::post('vendorLogin', 'VendorController@standLogin');
+Route::post('vendorLogin', 'VendorController@vendorLogin');
 Route::post('saveMenu','VendorController@saveMenu');
 Route::post('uploadMenuImage','VendorController@uploadMenuImage');
 
