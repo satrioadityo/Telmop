@@ -70,6 +70,8 @@ Route::get('read', function()
 	return View::make('read');
 });
 
+Route::get('deliver/order/{idTransaksi}', 'TransaksiController@deliverOrder');
+
 Route::post('submitRegister', 'DBController@insertData');
 Route::post('submitLogin', 'DBController@cekLogin');
 Route::get('logout', 'DBController@logout');
