@@ -12,7 +12,7 @@ class DBController extends BaseController {
 			'saldo' => 0,
 			);
 		DB::table('member')->insert($data);
-		return Redirect::to('/login');
+		return Redirect::to('user-login');
 	}
 
 	public function cekLogin(){

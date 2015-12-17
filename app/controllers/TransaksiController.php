@@ -37,4 +37,13 @@ class TransaksiController extends BaseController {
 		$order->save();
 		return "order success";
 	}
+
+	public function orderDelivered($idTransaksi)
+	{
+		$orderDelivered = Transaksi::where('idTransaksi', $idTransaksi)->first();
+		$orderDelivered->statustransaksi = 'terkirim';
+		$orderDelivered->save();
+
+		return Redirect::back();
+	}
 }

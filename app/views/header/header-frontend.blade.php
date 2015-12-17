@@ -16,6 +16,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				@if(Session::has('user'))
 					<li><a><?php echo Session::get('user'); ?></a></li>
+					<li><a href="{{url()}}/user/admin">List Order</a></li>
 
 					<?php 
 						$username = Session::get('user');
