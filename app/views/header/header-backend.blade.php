@@ -10,6 +10,8 @@
 			</button>
 			<a class="navbar-brand" href="{{ url() }}">TELMOP</a>
 		</div>
+
+		<?php $standLoggedIn = Stand::where('username', Session::get('user'))->first(); ?>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
@@ -17,10 +19,10 @@
 					<li><a><?php echo Session::get('user'); ?></a></li>
 						@if(Session::get('status') != 'kasir')
 						<li><a href="{{ url() }}/vendor-admin/myMenu">My Menu</a></li>
+						<li><a href="#">Saldo Rp {{$standLoggedIn->saldo}}</a></li>
 						<li><a href="#">Waiting List 
 							<span class="badge">
 							<?php 
-								$standLoggedIn = Stand::where('username', Session::get('user'))->first();
 								$menuOrdered = Transaksi::where('idStand', $standLoggedIn->idStand)->
 															where('statustransaksi', 'prepare')->get();
 							 ?>
