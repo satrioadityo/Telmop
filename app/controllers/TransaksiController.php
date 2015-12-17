@@ -35,7 +35,7 @@ class TransaksiController extends BaseController {
 		$order->statustransaksi = Input::get('status');
 
 		$order->save();
-		return "order success";
+		return Redirect::to('user/admin');
 	}
 
 	public function orderDelivered($menuname, $idTransaksi)

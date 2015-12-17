@@ -34,8 +34,8 @@
 							<tr>
 								<th>Menu</th>
 								<th>Jumlah Pesan</th>
-								<th>Total Harga</th>
 								<th>Lokasi</th>
+								<th>Status Order</th>
 								<th>Action</th>
 							</tr>
 						</thead>
