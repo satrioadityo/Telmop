@@ -42,8 +42,9 @@
 									<td>not available</td>
 									@endif
 									<td><a class="btn btn-warning" href="{{ url() }}/vendor-admin/myMenu/{{$result->idMenu}}">Edit</a>
+									<!-- <a class="btn btn-danger" href="{{url()}}/vendor-admin/deleteMenu/{{$result->idMenu}}">Delete</a></td> -->
 									<a class="btn btn-danger" href="" data-toggle="modal" data-target="#myModal{{$result->idMenu}}">Delete</a></td>
-									<!-- <a class="btn btn-danger" href="" data-toggle="modal" data-target="#myModal{{$result->idMenu}}">Delete</a></td> -->
+									
 									<div id="myModal{{$result->idMenu}}" class="modal fade" tabindex="-1" role="dialog">
 										<div class="modal-dialog">
 										    <div class="modal-content">
@@ -57,11 +58,7 @@
 											    </div>
 											    <div class="modal-footer">
 												    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												    <?php
-												    	$idMenu = Stand::where('username', Session::get('user'))->first();
-												    ?>
-												    <button id="delete" type="button" class="btn btn-danger" onclick="deleteMenu({{$result->idMenu}})">Delete{{$result->idMenu}}</button>
-													<!-- <input type="hidden" name="idMenu" value="<?php echo $idMenu->idMenu;?>"> -->
+												    <a class="btn btn-danger" href="{{url()}}/vendor-admin/deleteMenu/{{$result->idMenu}}">Delete</a>
 												</div>
 											</div><!-- /.modal-content -->
 										</div><!-- /.modal-dialog -->

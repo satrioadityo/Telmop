@@ -55,6 +55,8 @@ Route::get('vendor-admin/myMenu', function()
 	return View::make('my-menu');
 });
 
+Route::get('vendor-admin/deleteMenu/{idMenu}', 'VendorController@deleteMenu');
+
 Route::get('user/admin', function()
 {
 	return View::make('user-admin');

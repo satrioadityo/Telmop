@@ -65,6 +65,13 @@ class VendorController extends BaseController {
 		DB::table('menu')->insert($data);
 		return Redirect::back();
 	}
+
+	public function deleteMenu($idMenu){
+		$menu = Menu::where('idMenu', $idMenu)->first();
+		$menu->delete();
+		return Redirect::back();
+	}
+
 	public function uploadMenuImage(){
 		$file = Input::file('file');
 		$idBarang = $_POST['idBarang'];
