@@ -8,10 +8,9 @@
 @stop
 
 @section('contents')
-<?php 
-	$standLoggedIn = Stand::where('username', Session::get('user'))->first();
-?>
-
+	<?php 
+		$standLoggedIn = Stand::where('username', Session::get('user'))->first();
+	?>
 	<div class="container main-site" style="margin-top:75px">
 		<div class="row">
 			<div class="col-lg-12" style="margin-right:30px; margin-left:30px;">
@@ -29,7 +28,6 @@
 							</thead>
 							<?php 
 								$results = Menu::where('idStand',$standLoggedIn->idStand)->get();
-						        //echo $results;
 					        ?>
 							<tbody>
 							@foreach($results as $result)
@@ -37,14 +35,14 @@
 									<td>{{$result->name}}</td>
 									<td>{{$result->price}}</td>
 									@if($result->stock >0)
-									<td>available</td>
+										<td>available</td>
 									@else
-									<td>not available</td>
+										<td>not available</td>
 									@endif
 									<td><a class="btn btn-warning" href="{{ url() }}/vendor-admin/myMenu/{{$result->idMenu}}">Edit</a>
-									<!-- <a class="btn btn-danger" href="{{url()}}/vendor-admin/deleteMenu/{{$result->idMenu}}">Delete</a></td> -->
 									<a class="btn btn-danger" href="" data-toggle="modal" data-target="#myModal{{$result->idMenu}}">Delete</a></td>
 									
+									<!-- modal confirm -->
 									<div id="myModal{{$result->idMenu}}" class="modal fade" tabindex="-1" role="dialog">
 										<div class="modal-dialog">
 										    <div class="modal-content">
@@ -53,7 +51,6 @@
 											       	<h4 class="modal-title">{{$result->name}}</h4>
 										    	</div>
 											    <div class="modal-body">
-											       	<!-- <p>One fine body&hellip;Are you sure?</p> -->
 											       	<h2 style="color:#333; text-align:center">Are you sure?</h2>
 											    </div>
 											    <div class="modal-footer">
@@ -63,6 +60,7 @@
 											</div><!-- /.modal-content -->
 										</div><!-- /.modal-dialog -->
 									</div><!-- /.modal -->
+
 								</tr>
 							@endforeach
 							</tbody>
