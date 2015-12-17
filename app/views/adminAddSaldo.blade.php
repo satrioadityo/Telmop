@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout-backend')
 
 @section('title')
 Telmop's Home
@@ -15,16 +15,17 @@ Telmop's Home
 	
 		<div id="kotakSignup">
 			<div id="atas">
-				ADD SALDO
+				Add Saldo
 			</div>
-			<!-- form add Saldo -->
+			<!-- form register -->
 			<div id="bawah">
 				<form method="post" action="{{url()}}/addSaldo">
-					<input class="masuk" type="text" autocomplete="on" placeholder="Username.." name="uname"><br/>
-					<input class="masuk" type="text" autocomplete="on" placeholder="Saldo.." name="saldo"><br/>
-					<input id="tombol" type="submit" name="btn-addSaldo" value="Add Saldo"><br/><br/>
+					<input class="masuk" type="text" placeholder="{{$user}}" name="fullname" value="{{$user}}"><br/>
+					<input class="masuk" type="number" placeholder="" name="saldo"><br/>
+					<input id="tombol" type="submit" name="btn-add-saldo" value="Add Saldo"><br/><br/>
 				</form>
 			</div>
+			
 		</div>	
 	
 </div>

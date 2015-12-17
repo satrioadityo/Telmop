@@ -16,6 +16,7 @@
 			
 				<!-- GET STAND DATA WITH THE IMAGE STAND -->
 				@foreach($listStand as $stand)
+					@if($stand->username != 'kasir')
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
 						<div class="container-image">
 							<img src="{{ url() }}/assets/images/{{$stand->standpicture}}" class="img-responsive" alt="{{$stand->username}}">
@@ -28,6 +29,7 @@
 							</a>
 						</div>
 					</div>
+					@endif
 				@endforeach
 
 			</div>

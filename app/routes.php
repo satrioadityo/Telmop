@@ -33,6 +33,16 @@ Route::get('vendor-login', function()
 	return View::make('vendor-login');
 });
 
+Route::get('kasir-login', function()
+{
+	return View::make('kasir-login');
+});
+
+Route::get('kasir-admin', function()
+{
+	return View::make('kasir-admin');
+});
+
 Route::get('vendor/{username}', 'VendorController@showVendor');
 
 Route::get('vendor-admin', function()
@@ -78,6 +88,9 @@ Route::post('submitRegister', 'DBController@insertData');
 Route::post('submitLogin', 'DBController@cekLogin');
 Route::get('logout', 'DBController@logout');
 Route::post('vendorLogin', 'VendorController@vendorLogin');
+Route::post('kasirLogin', 'VendorController@kasirLogin');
 Route::post('saveMenu','VendorController@saveMenu');
 Route::post('uploadMenuImage','VendorController@uploadMenuImage');
 
+Route::get('addSaldo/{fullname}','VendorController@addSaldo');
+Route::post('addSaldo','VendorController@doAddSaldo');

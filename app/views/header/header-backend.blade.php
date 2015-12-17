@@ -13,15 +13,26 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<?php if (Session::has('user')): ?>
-						<li><a><?php echo Session::get('user'); ?></a></li>
+				@if(Session::has('user'))
+					<li><a><?php echo Session::get('user'); ?></a></li>
+						@if(Session::get('status') != 'kasir')
 						<li><a href="{{ url() }}/vendor-admin/myMenu">My Menu</a></li>
-						<li><a href="{{ url() }}/notif">Notifications <span class="badge">3</span></a></li>
+						<li><a href="#">Waiting List 
+							<span class="badge">
+							<?php 
+								$standLoggedIn = Stand::where('username', Session::get('user'))->first();
+								$menuOrdered = Transaksi::where('idStand', $standLoggedIn->idStand)->
+															where('statustransaksi', 'prepare')->get();
+							 ?>
+							 {{ $menuOrdered->count() }}
+						 	</span>
+						 </a></li>
+						 @endif
 						<li><a href="{{ url() }}/logout">Logout</a></li>
-					<?php else : ?>
+				@else
 						<li><a href="{{ url() }}/vendor-login">Login</a></li>
 						<li><a href="{{ url() }}/register">Register</a></li>
-				<?php endif ?>
+				@endif
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</nav>

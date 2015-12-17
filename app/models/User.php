@@ -15,6 +15,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'member';
+	protected $primaryKey = 'username';
+	public $timestamps = false;
 
 	protected $fillable =['username', 'password'];
 
