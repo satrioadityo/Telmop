@@ -62,7 +62,7 @@
 								<td>{{$menu->location}}</td>
 								<td>{{$menu->statustransaksi}}</td>
 								@if($menu->statustransaksi == 'dikirim')
-								<td><a class="btn btn-success" href="{{url()}}/order/delivered/{{$menu->menuname}}/{{$menu->idTransaksi}}">Delivered</a></td>
+								<td><a class="btn btn-success" href="{{url()}}/order/delivered/{{$menu->idTransaksi}}">Delivered</a></td>
 								@else
 								<td><a class="btn btn-warning" href="#">Wait Please</a></td>
 								@endif

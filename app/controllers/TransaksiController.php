@@ -33,28 +33,32 @@ class TransaksiController extends BaseController {
 		$order->jumlahBeli = Input::get('amountOrder');
 		$order->idStand = Input::get('idStand');
 		$order->statustransaksi = Input::get('status');
+		$order->hargaTotal = Input::get('harga')*$order->jumlahBeli;
 
 		$order->save();
+
+		// kurangi saldo user, kurangi stok
+		$menuDeliver = Menu::where('name', $order->menuname)->first();
+		$menuDeliver->stock = $menuDeliver->stock - $order->jumlahBeli;
+
+		$userOrder = User::where('username', Session::get('user'))->first();
+		$userOrder->saldo = $userOrder->saldo - $order->hargaTotal;
+
+		$menuDeliver->save();
+		$userOrder->save();
+
 		return Redirect::to('user/admin');
 	}
 
-	public function orderDelivered($menuname, $idTransaksi)
+	public function orderDelivered($idTransaksi)
 	{
 		$orderDelivered = Transaksi::where('idTransaksi', $idTransaksi)->first();
 		$orderDelivered->statustransaksi = 'terkirim';
-		
-		$menuDelivered = Menu::where('name', $menuname)->first();
-		$menuDelivered->stock = $menuDelivered->stock - $orderDelivered->jumlahBeli;
-
-		$userDelivered = User::where('username', Session::get('user'))->first();
-		$userDelivered->saldo = $userDelivered->saldo - ($orderDelivered->jumlahBeli * $menuDelivered->price);
 
 		$standDelivered = Stand::where('idStand', $orderDelivered->idStand)->first();
-		$standDelivered->saldo = $standDelivered->saldo + ($orderDelivered->jumlahBeli * $menuDelivered->price);
+		$standDelivered->saldo = $standDelivered->saldo + $orderDelivered->hargaTotal;
 
 		$orderDelivered->save();
-		$menuDelivered->save();
-		$userDelivered->save();
 		$standDelivered->save();
 
 		return Redirect::to('user/admin');

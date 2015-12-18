@@ -28,6 +28,8 @@ Telmop's Order
 					<input type="hidden" name="date" class="form-control" value="{{date('Y-m-d')}}">
 					<input type="hidden" name="idStand" class="form-control" value="{{$idStand}}">
 					<input type="hidden" name="status" class="form-control" value="{{'prepare'}}">
+					<input type="hidden" name="idStand" class="form-control" value="{{$bindedMenu->idStand}}">
+					<input type="hidden" name="harga" class="form-control" value="{{$bindedMenu->price}}">
 
 					<input id="tombol" type="submit" name="btn-signup" value="Submit Order"><br/><br/>
 				</form>
